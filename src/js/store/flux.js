@@ -1,43 +1,75 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			
+			characters: [],
+			planets: [],
+			character: {},
+			planet: {},
+			
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			obtenerPersonajes: async () => {
+				try {
+					const response = await fetch('https://www.swapi.tech/api/people/', {
+					})
+					if (response.ok) {
+						const data = await response.json()
+						setStore({ characters: data.results })
+					}
+				}
+				catch (error) {
+					console.log(error);
+					return false;
+				}
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+
+			obtenerFilms: async () => {
+				try {
+					const response = await fetch('https://www.swapi.tech/api/films/', {
+					})
+					if (response.ok) {
+						const data = await response.json()
+						setStore({ films: data.results })
+					}
+				}
+				catch (error) {
+					console.log(error);
+					return false;
+				}
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			obtenerPersonajeDetails: async (id) => {
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/people/${id}`, {
+						method: `GET`,
+					})
+					if (response.ok) {
+						const data = await response.json()
+						setStore({ character: data })
+					}
+				}
+				catch (error) {
+					console.log(error);
+					return false;
+				}
+			},
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			obtenerFilmDetails: async (id) => {
+				try {
+					const response = await fetch(`https://swapi.dev/api/planets/${id}`, {
+						method: `GET`,
+					})
+					if (response.ok) {
+						const data = await response.json()
+						setStore({ planet: data })
+					}
+				}
+				catch (error) {
+					console.log(error);
+					return false;
+				}
+			},
 		}
 	};
 };
