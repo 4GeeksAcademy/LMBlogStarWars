@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			character: {},
 			planet: {},
+			favoritesList: [],
 			
 		},
 		actions: {
@@ -67,6 +68,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error("Error en la petición fetch:", error);
 					setStore({ planet: null }); 
 				}
+			},
+			agregarFavoritesList: (name) => {
+				if (getStore().favoritesList.includes(name)) {
+					getActions().eliminarFavorite(name)
+				} else {
+					setStore({ favoritesList: [...getStore().favoritesList, name] });
+				}
+			},
+			eliminarFavorite: (name) => {
+				const newList = getStore().favoritesList.filter((item) => item != name)
+				setStore({ favoritesList: newList })
 			},
 		}
 	};

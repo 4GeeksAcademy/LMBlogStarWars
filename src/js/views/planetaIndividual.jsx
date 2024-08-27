@@ -3,9 +3,13 @@ import { Context } from "../store/appContext";
 import { useParams } from "react-router";
 
 export const PlanetaIndividual = () => {
-    const { id } = useParams();
-c
-    
+    const { id } = useParams(); // Obtener el ID de los parámetros de la URL
+    const { actions, store } = useContext(Context);
+
+    useEffect(() => {
+        actions.obtenerPlanetaDetails(id);
+    }, [id, actions]); // Asegurarse de que se ejecute cada vez que cambie el ID
+
     return (
         <>
         <div className="text-center m-2">

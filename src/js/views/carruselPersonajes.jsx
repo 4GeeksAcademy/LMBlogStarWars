@@ -25,7 +25,7 @@ export const CarruselPersonajes = () => {
     const characterGroups = groupCharacters(store.characters, 4);
 
     return (
-        <div className="text-center">
+        <div className="text-center mt-3">
             <div>
                 <h1 className="fw-semibold text-info text-opacity-50">Characters</h1>
             </div>
