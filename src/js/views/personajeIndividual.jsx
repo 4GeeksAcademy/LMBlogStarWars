@@ -1,13 +1,18 @@
 import React, { useContext, useEffect } from "react";
-import { Context } from "../store/appContext";
 import { useParams } from "react-router";
+import { Context } from "../store/appContext";
+
 
 export const PersonajeIndividual = () => {
 
-    const { id } = useParams()
-    const { store } = useContext(Context)
+    const { id } = useParams(); // Obtener el ID de los parámetros de la URL
+    const { actions, store } = useContext(Context);
 
-    
+    useEffect(() => {
+        actions.obtenerPersonajeDetails(id);
+    }, [id, actions]); // Asegurarse de que se ejecute cada vez que cambie el ID
+
+
     return (
         <div className="text-center m-2">
             <div className="row">

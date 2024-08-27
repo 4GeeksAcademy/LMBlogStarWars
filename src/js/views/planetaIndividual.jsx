@@ -4,16 +4,7 @@ import { useParams } from "react-router";
 
 export const PlanetaIndividual = () => {
     const { id } = useParams();
-    const { actions, store } = useContext(Context);
-
-    useEffect(() => {
-        actions.obtenerPlanetaDetails(id);
-    }, [id, actions]); // Asegurarse de que se ejecute cada vez que cambie el ID
-
-    // Verificar si los datos del planeta están cargados
-    if (!store.planet.name) {
-        return <div>Loading...</div>; // Puedes personalizar este mensaje o usar un spinner
-    }
+c
     
     return (
         <>
