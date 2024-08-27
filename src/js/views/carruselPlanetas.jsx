@@ -4,7 +4,7 @@ import { Films } from "../component/films.jsx";
 
 
 
-export const CarruselFilms = () => {
+export const CarruselPlanetas = () => {
 
     const { store, actions } = useContext(Context)
 
@@ -19,13 +19,12 @@ export const CarruselFilms = () => {
             </div>
             <div className="card-group">
                 <div className="d-flex flex-row overflow-scroll">
-                    {store.films.map((item, index) => (
-                        <Films
+                {store.planets.map((item, index) => (
+                        <Planetas
                             key={index}
-                            title={item.title}
-                            director={item.director}
-                            producer={item.producer}
-                            relase_date={item.relase_date}
+                            name={item.name}
+                            population={item.population}
+                            terrain={item.terrain}
                             id={index + 1}
                         />
                     ))}

@@ -11,8 +11,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			obtenerPersonajes: async () => {
 				try {
-					const response = await fetch('https://www.swapi.tech/api/people/', {
-					})
+					const response = await fetch('https://www.swapi.tech/api/people/')
 					if (response.ok) {
 						const data = await response.json()
 						setStore({ characters: data.results })
@@ -24,13 +23,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			obtenerFilms: async () => {
+			obtenerPlanetas: async () => {
 				try {
-					const response = await fetch('https://www.swapi.tech/api/films/', {
-					})
+					const response = await fetch('https://www.swapi.tech/api/planets/')
 					if (response.ok) {
 						const data = await response.json()
-						setStore({ films: data.results })
+						setStore({ planets: data.results })
 					}
 				}
 				catch (error) {
@@ -41,9 +39,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			obtenerPersonajeDetails: async (id) => {
 				try {
-					const response = await fetch(`https://www.swapi.tech/api/people/${id}`, {
-						method: `GET`,
-					})
+					const response = await fetch(`https://www.swapi.tech/api/people/${id}`)
 					if (response.ok) {
 						const data = await response.json()
 						setStore({ character: data })
@@ -55,11 +51,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			obtenerFilmDetails: async (id) => {
+			obtenerPlanetaDetails: async (id) => {
 				try {
-					const response = await fetch(`https://swapi.dev/api/planets/${id}`, {
-						method: `GET`,
-					})
+					const response = await fetch(`https://www.swapi.tech/api/planets/${id}`)
 					if (response.ok) {
 						const data = await response.json()
 						setStore({ planet: data })
