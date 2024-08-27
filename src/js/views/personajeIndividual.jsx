@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router";
 import { Context } from "../store/appContext";
-import { NoEmitOnErrorsPlugin } from "webpack";
+
 
 
 export const PersonajeIndividual = () => {
@@ -15,12 +15,13 @@ export const PersonajeIndividual = () => {
 
 
     return (
-        <div className="text-center m-2 d-flex justify-content-center" style={{border: "none", backgroundColor: "black", color: "yellow"}}>
+        <>
+        <div className="text-center m-2 d-flex justify-content-center" style={{color: "yellow"}}>
             <div className="row">
                 <div className="col-3">
                     <div className="card" style={{ width: "30rem", flex: "none", margin: "10px" }}>
                         <img src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} className="card-img-top" />
-                        <div className="card-body">
+                        <div className="card-body" style={{backgroundColor: 'black'}}>
                             <h5 className="card-title">Name: {store.character.name}</h5>
                             <p className="card-text">Birth Year: {store.character.birth_year}</p>
                             <p className="card-text">Height: {store.character.height}</p>
@@ -32,6 +33,7 @@ export const PersonajeIndividual = () => {
                 </div>
             </div>
         </div>
+        </>
 
     )
 };

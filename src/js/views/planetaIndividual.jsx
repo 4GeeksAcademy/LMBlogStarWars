@@ -12,12 +12,12 @@ export const PlanetaIndividual = () => {
 
     return (
         <>
-        <div className="text-center m-2">
+        <div className="text-center m-2 d-flex justify-content-center" style={{color: "yellow"}}>
             <div className="row">
                 <div className="col-3">
-                    <div className="card" style={{ width: "18rem", flex:"none", margin:"10px" }}>
-                        <img src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} className="card-img-top" alt={name} />
-                        <div className="card-body">
+                    <div className="card" style={{ width: "30rem", flex:"none", margin:"10px" }}>
+                        <img src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} className="card-img-top" />
+                        <div className="card-body" style={{backgroundColor: 'black'}}>
                             <h5 className="card-title">Name: {store.planet.name}</h5>
                             <p className="card-text">Climate: {store.planet.climate}</p>
                             <p className="card-text">Population: {store.planet.population}</p>
