@@ -1,8 +1,8 @@
 import React from "react";
 
 import "../../styles/home.css";
-import { CarruselPersonajes } from "./carruselPersonajes";
-import { CarruselPlanetas } from "./carruselPlanetas";
+import { CarruselPersonajes } from "./carruselPersonajes.jsx";
+import { CarruselPlanetas } from "./carruselPlanetas.jsx";
 
 export const Home = () => {
 	return(

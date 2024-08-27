@@ -8,10 +8,10 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Home } from "./views/home";
-import { Personajes } from "./component/personajes";
-import { Planetas } from "./component/planetas";
-import { PersonajeIndividual } from "./views/personajeIndividual";
-import { PlanetaIndividual } from "./views/planetaIndividual";
+import { Personajes } from "./component/personajes.jsx";
+import { Planetas } from "./component/planetas.jsx";
+import { PersonajeIndividual } from "./views/personajeIndividual.jsx";
+import { PlanetaIndividual } from "./views/planetaIndividual.jsx";
 
 //create your first component
 const Layout = () => {

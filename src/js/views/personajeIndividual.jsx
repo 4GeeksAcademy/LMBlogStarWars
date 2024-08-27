@@ -5,13 +5,9 @@ import { useParams } from "react-router";
 export const PersonajeIndividual = () => {
 
     const { id } = useParams()
-    const { actions, store } = useContext(Context)
+    const { store } = useContext(Context)
 
-    useEffect(() => {
-        actions.obtenerPersonajeDetails(id)
-    }, [])
-
-    console.log(store.character.name);
+    
     return (
         <div className="text-center m-2">
             <div className="row">
